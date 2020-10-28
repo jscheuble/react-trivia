@@ -6,17 +6,31 @@ const Questions = () => {
     const [currentQuestion, setCurrentQuestion] = useState({})
     const [answers, setAnswers] = useState([])
 
-    useEffect(() => {
-        const index = Math.floor(Math.random() * Math.floor(questions.length))
-        setCurrentQuestion(questions[index])
-        setQuestions(questions.filter((e, i) => {
+    const setUpQuestion = async () => {
+        // generate random index to choose question
+        const index = Math.floor(Math.random() * questions.length)
+        await setCurrentQuestion(questions[index])
+        let answerChoices = await [...questions[index].incorrect, questions[index].correct]
+        await setAnswers(answerChoices)
+        await setQuestions(questions.filter((e, i) => {
             return i !== index;
         }))
+    }
+
+    useEffect(() => {
+        setUpQuestion()
     }, [])
 
     return (
-        <div onClick={() => console.log(questions)}>
+        <div>
             {currentQuestion.question}
+            {answers.map((option, i) => {
+                return (
+                    <div key={i}>
+                        {option}
+                    </div>
+                )
+            })}
         </div>
     )
 }
