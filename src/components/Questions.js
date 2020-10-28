@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import data from '../data.json';
+import Context from '../contexts/context';
 import { Question, Answer, AnswerContainer, Button } from '../styles/styledComponents';
 import { shuffle } from '../utils/shuffle';
 
@@ -9,10 +10,9 @@ const Questions = () => {
     const [answers, setAnswers] = useState([])
     const [currentResponse, setCurrentResponse] = useState('')
     const [submitted, setSubmitted] = useState(false)
-    const [counts, setCounts] = useState({
-        questions: 0,
-        score: 0
-    })
+    
+
+    const { counts, setCounts } = useContext(Context);
 
     const setUpQuestion = async () => {
         // generate random index to choose question
