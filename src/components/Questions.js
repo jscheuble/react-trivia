@@ -24,13 +24,17 @@ const Questions = () => {
         setUpQuestion()
     }, [])
 
+    const checkAnswer = (input) => {
+        console.log(input === currentQuestion.correct)
+    }
+
     return (
         <div>
             <Question>{currentQuestion.question}</Question>
             <AnswerContainer>
                 {answers.map((option, i) => {
                     return (
-                        <Answer key={i}>
+                        <Answer key={i} onClick={() => checkAnswer(option)}>
                             <p>{option}</p>
                         </Answer>
                     )
