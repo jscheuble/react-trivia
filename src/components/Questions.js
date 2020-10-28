@@ -8,6 +8,11 @@ const Questions = () => {
     const [currentQuestion, setCurrentQuestion] = useState({})
     const [answers, setAnswers] = useState([])
     const [currentResponse, setCurrentResponse] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+    const [counts, setCounts] = useState({
+        questions: 0,
+        score: 0
+    })
 
     const setUpQuestion = async () => {
         // generate random index to choose question
@@ -29,6 +34,15 @@ const Questions = () => {
 
     const checkAnswer = (input) => {
         console.log(input === currentQuestion.correct)
+        setSubmitted(true)
+        if (input === currentQuestion.correct) {
+            setCounts({
+                questions: counts.questions + 1,
+                score: counts.score + 1
+            })
+        } else {
+            setCounts({...counts, questions: counts.questions + 1})
+        }
     }
 
     return (
@@ -43,7 +57,14 @@ const Questions = () => {
                     )
                 })}
             </AnswerContainer>
-            <Button>Submit</Button>
+            {submitted ? 
+            <Button onClick={() => {
+                setSubmitted(false)
+                setUpQuestion()
+            }}>Next Question</Button> : 
+            counts.questions === 10 ? 
+            <Button>View Score</Button> :
+            <Button onClick={() => checkAnswer(currentResponse)}>Submit</Button>}
         </div>
     )
 }
