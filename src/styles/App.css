@@ -9,10 +9,17 @@ font-family: 'Open Sans Condensed', sans-serif;
 font-family: 'PT Sans', sans-serif; 
 */
 
-.App {
+body {
+  background: #0B195A;
+  color: #fff;
   text-align: center;
+  font-size: 62.5%;
 }
 
-.button {
-  border: 1px solid black;
+h1 {
+  font-family: 'Bree Serif', serif;
+}
+
+p {
+  font-family: 'Open Sans Condensed', sans-sereif;
 }

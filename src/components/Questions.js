@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import data from '../data.json';
+import { Question, Answer, AnswerContainer } from '../styles/styledComponents';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -8,10 +9,12 @@ const Questions = () => {
 
     const setUpQuestion = async () => {
         // generate random index to choose question
-        const index = Math.floor(Math.random() * questions.length)
+        const index = Math.floor(Math.random() * questions.length);
         await setCurrentQuestion(questions[index])
-        let answerChoices = await [...questions[index].incorrect, questions[index].correct]
+
+        let answerChoices = await [...questions[index].incorrect, questions[index].correct];
         await setAnswers(answerChoices)
+
         await setQuestions(questions.filter((e, i) => {
             return i !== index;
         }))
@@ -23,14 +26,16 @@ const Questions = () => {
 
     return (
         <div>
-            {currentQuestion.question}
-            {answers.map((option, i) => {
-                return (
-                    <div key={i}>
-                        {option}
-                    </div>
-                )
-            })}
+            <Question>{currentQuestion.question}</Question>
+            <AnswerContainer>
+                {answers.map((option, i) => {
+                    return (
+                        <Answer key={i}>
+                            <p>{option}</p>
+                        </Answer>
+                    )
+                })}
+            </AnswerContainer>
         </div>
     )
 }

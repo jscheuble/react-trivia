@@ -1,10 +1,11 @@
-import './App.css';
+import './styles/App.css';
+import { Heading } from './styles/styledComponents';
 import Game from './components/Game';
 
 function App() {
   return (
     <div className="App">
-      trivia
+      <Heading>TRIVIA</Heading>
       <Game />
     </div>
   );
