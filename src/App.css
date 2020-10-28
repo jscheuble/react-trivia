@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans+Condensed:wght@300&family=PT+Sans&display=swap');
+
+/* 
+titles
+font-family: 'Bree Serif', serif;
+
+questions/answers
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'PT Sans', sans-serif; 
+*/
+
 .App {
   text-align: center;
 }
