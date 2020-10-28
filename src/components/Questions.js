@@ -48,6 +48,7 @@ const Questions = () => {
     return (
         <div>
             <Question>{currentQuestion.question}</Question>
+            {counts.questions}
             <AnswerContainer>
                 {answers.map((option, i) => {
                     return (
@@ -57,7 +58,7 @@ const Questions = () => {
                     )
                 })}
             </AnswerContainer>
-            {submitted ? 
+            {submitted && counts.questions < 10 ? 
             <Button onClick={() => {
                 setSubmitted(false)
                 setUpQuestion()
