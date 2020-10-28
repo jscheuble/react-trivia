@@ -30,4 +30,8 @@ export const AnswerContainer = styled.div`
     margin: 0 auto;
     justify-content: space-around;
     align-content: center;
+
+    .selected {
+        border: 2px solid red;
+    }
 `;
