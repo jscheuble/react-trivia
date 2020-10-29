@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import data from '../data.json';
-import Context from '../contexts/context';
 import { Question, Answer, AnswerContainer, Button } from '../styles/styledComponents';
 import { shuffle } from '../utils/shuffle';
+import Score from './Score';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -10,9 +10,11 @@ const Questions = () => {
     const [answers, setAnswers] = useState([])
     const [currentResponse, setCurrentResponse] = useState('')
     const [submitted, setSubmitted] = useState(false)
-    
-
-    const { counts, setCounts } = useContext(Context);
+    const [counts, setCounts] = useState({
+        questions: 0,
+        score: 0
+        })
+    const [showScore, setShowScore] = useState(false);
 
     const setUpQuestion = async () => {
         // generate random index to choose question
@@ -31,6 +33,12 @@ const Questions = () => {
     useEffect(() => {
         setUpQuestion()
     }, [])
+    
+    const nextQuestion = () => {
+        setCurrentResponse('')
+        setSubmitted(false)
+        setUpQuestion()
+    }
 
     const checkAnswer = (input) => {
         console.log(input === currentQuestion.correct)
@@ -59,13 +67,12 @@ const Questions = () => {
                 })}
             </AnswerContainer>
             {submitted && counts.questions < 10 ? 
-            <Button onClick={() => {
-                setSubmitted(false)
-                setUpQuestion()
-            }}>Next Question</Button> : 
+            <Button onClick={() => nextQuestion()}>Next Question</Button> : 
             counts.questions === 10 ? 
-            <Button>View Score</Button> :
-            <Button onClick={() => checkAnswer(currentResponse)}>Submit</Button>}
+            <Button onClick={() => setShowScore(true)}>View Score</Button> :
+            currentResponse && <Button onClick={() => checkAnswer(currentResponse)}>Submit</Button>}
+
+            {showScore && <Score score={counts.score} />}
         </div>
     )
 }
