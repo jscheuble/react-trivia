@@ -15,20 +15,28 @@ export const Question = styled.p`
     font-size: 1.5rem;
 `;
 
-export const AnswerFront = styled.div`
+export const Card = styled.div`
     font-size: 1.5rem;
     border: 2px solid #fff;
     width: 40%;
     padding: 5% 0;
     margin: 2% 0;
+    position: relative;
+    transform: rotateY(var(--rotate-y, 0));
+    transition: 150ms;
+
+    @media (max-width: 800px) {
+        width: 90%;
+        padding: 1% 0;
+    }
+`;
+
+export const AnswerFront = styled.div`
+    transform: rotateY(0deg);
 `;
 
 export const AnswerBack = styled.div`
-    font-size: 1.5rem;
-    border: 2px solid #fff;
-    width: 40%;
-    padding: 5% 0;
-    margin: 2% 0;
+    transform: rotateY(180deg);
 `;
 
 export const AnswerContainer = styled.div`
@@ -37,9 +45,12 @@ export const AnswerContainer = styled.div`
     width: 80%;
     margin: 0 auto;
     justify-content: space-around;
-    align-content: center;
 
     .selected {
         border: 2px solid red;
+    }
+
+    .flip {
+        --rotate-y: 180deg;
     }
 `;

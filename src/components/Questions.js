@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import data from '../data.json';
-import { Question, AnswerFront, AnswerBack, AnswerContainer, Button } from '../styles/styledComponents';
+import { Question, Card, AnswerFront, AnswerBack, AnswerContainer, Button } from '../styles/styledComponents';
 import { shuffle } from '../utils/shuffle';
 import Score from './Score';
+import Incorrect from './Incorrect';
+import Correct from './Correct';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -10,7 +12,6 @@ const Questions = () => {
     const [answers, setAnswers] = useState([])
     const [currentResponse, setCurrentResponse] = useState('')
     const [submitted, setSubmitted] = useState(false)
-    const [flipped, setFlipped] = useState(false)
     const [counts, setCounts] = useState({
         questions: 0,
         score: 0
@@ -43,7 +44,6 @@ const Questions = () => {
 
     const checkAnswer = (input) => {
         console.log(input === currentQuestion.correct)
-        setFlipped(!flipped)
         setSubmitted(true)
         if (input === currentQuestion.correct) {
             setCounts({
@@ -62,14 +62,15 @@ const Questions = () => {
             <AnswerContainer>
                 {answers.map((option, i) => {
                     return (
-                        <>
-                            <AnswerFront key={i} onClick={() => setCurrentResponse(option)} className={option === currentResponse ? 'selected' : flipped && option === currentResponse ? 'flip' : ''}>
+                        <Card key={i} onClick={() => !submitted && setCurrentResponse(option)} className={ option === currentResponse && submitted ? 'flip selected' : option === currentResponse ? 'selected' : ''}>
+                            {!submitted || submitted && option !== currentResponse ? 
+                            <AnswerFront>
                                 <p>{option}</p>
-                            </AnswerFront>
-                            <AnswerBack>
-
-                            </AnswerBack>
-                        </>
+                            </AnswerFront> 
+                            : <AnswerBack>
+                                {option === currentQuestion.correct ? <Correct /> : <Incorrect />}
+                            </AnswerBack>}
+                        </Card>
                     )
                 })}
             </AnswerContainer>

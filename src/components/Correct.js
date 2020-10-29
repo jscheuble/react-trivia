@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Correct = () => {
-    return (
-        <div>
-            correct
-        </div>
-    )
+    return <p>correct</p>;
 }
 
 export default Correct;
