@@ -15,7 +15,15 @@ export const Question = styled.p`
     font-size: 1.5rem;
 `;
 
-export const Answer = styled.div`
+export const AnswerFront = styled.div`
+    font-size: 1.5rem;
+    border: 2px solid #fff;
+    width: 40%;
+    padding: 5% 0;
+    margin: 2% 0;
+`;
+
+export const AnswerBack = styled.div`
     font-size: 1.5rem;
     border: 2px solid #fff;
     width: 40%;

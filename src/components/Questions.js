@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import data from '../data.json';
-import { Question, Answer, AnswerContainer, Button } from '../styles/styledComponents';
+import { Question, AnswerFront, AnswerBack, AnswerContainer, Button } from '../styles/styledComponents';
 import { shuffle } from '../utils/shuffle';
 import Score from './Score';
 
@@ -10,6 +10,7 @@ const Questions = () => {
     const [answers, setAnswers] = useState([])
     const [currentResponse, setCurrentResponse] = useState('')
     const [submitted, setSubmitted] = useState(false)
+    const [flipped, setFlipped] = useState(false)
     const [counts, setCounts] = useState({
         questions: 0,
         score: 0
@@ -42,6 +43,7 @@ const Questions = () => {
 
     const checkAnswer = (input) => {
         console.log(input === currentQuestion.correct)
+        setFlipped(!flipped)
         setSubmitted(true)
         if (input === currentQuestion.correct) {
             setCounts({
@@ -60,9 +62,14 @@ const Questions = () => {
             <AnswerContainer>
                 {answers.map((option, i) => {
                     return (
-                        <Answer key={i} onClick={() => setCurrentResponse(option)} className={option === currentResponse ? 'selected' : ''}>
-                            <p>{option}</p>
-                        </Answer>
+                        <>
+                            <AnswerFront key={i} onClick={() => setCurrentResponse(option)} className={option === currentResponse ? 'selected' : flipped && option === currentResponse ? 'flip' : ''}>
+                                <p>{option}</p>
+                            </AnswerFront>
+                            <AnswerBack>
+
+                            </AnswerBack>
+                        </>
                     )
                 })}
             </AnswerContainer>
