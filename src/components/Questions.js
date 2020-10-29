@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import data from '../data.json';
-import { Question, Card, AnswerFront, AnswerBack, AnswerContainer, Button } from '../styles/styledComponents';
+import { Question, AnswerContainer, Button } from '../styles/styledComponents';
 import { shuffle } from '../utils/shuffle';
+import AnswerCard from './AnswerCard';
 import Score from './Score';
-import Incorrect from './Incorrect';
-import Correct from './Correct';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -43,7 +42,6 @@ const Questions = () => {
     }
 
     const checkAnswer = (input) => {
-        console.log(input === currentQuestion.correct)
         setSubmitted(true)
         if (input === currentQuestion.correct) {
             setCounts({
@@ -58,22 +56,12 @@ const Questions = () => {
     return (
         <div>
             <Question>{currentQuestion.question}</Question>
-            {counts.questions}
             <AnswerContainer>
                 {answers.map((option, i) => {
-                    return (
-                        <Card key={i} onClick={() => !submitted && setCurrentResponse(option)} className={ option === currentResponse && submitted ? 'flip selected' : option === currentResponse ? 'selected' : ''}>
-                            {!submitted || submitted && option !== currentResponse ? 
-                            <AnswerFront>
-                                <p>{option}</p>
-                            </AnswerFront> 
-                            : <AnswerBack>
-                                {option === currentQuestion.correct ? <Correct /> : <Incorrect />}
-                            </AnswerBack>}
-                        </Card>
-                    )
+                    return <AnswerCard key={i} isCorrect={currentQuestion.correct} submitted={submitted} setCurrentResponse={setCurrentResponse} currentResponse={currentResponse} option={option}  />
                 })}
             </AnswerContainer>
+
             {submitted && counts.questions < 10 ? 
             <Button onClick={() => nextQuestion()}>Next Question</Button> : 
             counts.questions === 10 ? 

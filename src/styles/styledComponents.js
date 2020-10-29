@@ -19,24 +19,35 @@ export const Card = styled.div`
     font-size: 1.5rem;
     border: 2px solid #fff;
     width: 40%;
-    padding: 5% 0;
     margin: 2% 0;
     position: relative;
     transform: rotateY(var(--rotate-y, 0));
-    transition: 150ms;
+    transition: 500ms;
 
     @media (max-width: 800px) {
         width: 90%;
-        padding: 1% 0;
     }
+    
 `;
 
 export const AnswerFront = styled.div`
     transform: rotateY(0deg);
+    background: green;
+    padding: 5% 0;
+
+    @media (max-width: 800px) {
+        padding: 1% 0;
+    }
 `;
 
 export const AnswerBack = styled.div`
     transform: rotateY(180deg);
+    background: red;
+    padding: 5% 0;
+
+    @media (max-width: 800px) {
+        padding: 1% 0;
+    }
 `;
 
 export const AnswerContainer = styled.div`
