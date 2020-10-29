@@ -6,7 +6,12 @@ import Incorrect from './Incorrect';
 const AnswerCard = ({ submitted, isCorrect, setCurrentResponse, currentResponse, option }) => {
 
     return (
-        <Card onClick={() => !submitted && setCurrentResponse(option)} className={ option === currentResponse && submitted ? 'flip selected' : option === currentResponse ? 'selected' : ''}>
+        <Card onClick={() => !submitted && setCurrentResponse(option)} 
+            className={ option === currentResponse && submitted 
+            ? 'flip selected' 
+            : option === currentResponse 
+            ? 'selected' 
+            : submitted && option === isCorrect ? 'correct' : ''}>
             {!submitted || submitted && option !== currentResponse ? 
             <AnswerFront>
                 <p>{option}</p>

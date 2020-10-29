@@ -61,6 +61,10 @@ export const AnswerContainer = styled.div`
         border: 2px solid red;
     }
 
+    .correct {
+        border: 2px solid yellow;
+    }
+
     .flip {
         --rotate-y: 180deg;
     }

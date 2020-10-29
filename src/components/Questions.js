@@ -35,12 +35,6 @@ const Questions = () => {
         setUpQuestion()
     }, [])
     
-    const nextQuestion = () => {
-        setCurrentResponse('')
-        setSubmitted(false)
-        setUpQuestion()
-    }
-
     const checkAnswer = (input) => {
         setSubmitted(true)
         if (input === currentQuestion.correct) {
@@ -51,6 +45,12 @@ const Questions = () => {
         } else {
             setCounts({...counts, questions: counts.questions + 1})
         }
+    }
+    
+    const nextQuestion = () => {
+        setCurrentResponse('')
+        setSubmitted(false)
+        setUpQuestion()
     }
 
     return (
