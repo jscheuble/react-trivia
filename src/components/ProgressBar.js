@@ -19,9 +19,9 @@ const Bar = styled.div`
         
         span {
             padding-right: 10px;
+            padding-bottom: 5px;
             font-size: 1rem;
             color: black;
-            text-shadow: 2px 2px #fff;
         }
     }
 `
