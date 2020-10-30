@@ -4,6 +4,7 @@ import { Question, AnswerContainer, Button } from '../styles/styledComponents';
 import { shuffle } from '../utils/shuffle';
 import AnswerCard from './AnswerCard';
 import Score from './Score';
+import ProgressBar from './ProgressBar';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -77,6 +78,8 @@ const Questions = () => {
                         return <AnswerCard key={i} isCorrect={currentQuestion.correct} submitted={submitted} setCurrentResponse={setCurrentResponse} currentResponse={currentResponse} option={option}  />
                     })}
                 </AnswerContainer>
+                
+                <ProgressBar questionCount={counts.questions} />
 
                 {submitted && counts.questions < 10 ? 
                 <Button onClick={() => nextQuestion()}>Next Question</Button> : 
@@ -87,6 +90,7 @@ const Questions = () => {
             : <div>
                 <Score score={counts.score} resetGame={resetGame} />
             </div>}
+
         </div>
     )
 }
