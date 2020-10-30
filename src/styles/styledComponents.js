@@ -12,20 +12,30 @@ export const Button = styled.div`
 `;
 
 export const Question = styled.p`
-    font-size: 1.5rem;
+    font-size: 2rem;
+
+    @media (max-width: 800px) {
+        font-size: 1.5rem;
+    }
+
 `;
 
 export const Card = styled.div`
-    font-size: 2rem;
+    font-size: 1.6rem;
     border: 2px solid #fff;
     width: 40%;
     margin: 2% 0;
     position: relative;
     transform: rotateY(var(--rotate-y, 0));
     transition: 500ms;
+    padding: 2%;
 
-    @media (max-width: 800px) {
-        width: 90%;
+    @media (max-width: 900px) {
+        width: 100%;
+
+        @media (max-width: 500px) {
+            font-size: 1rem;
+        }
     }
     
 `;
