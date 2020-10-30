@@ -1,26 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans+Condensed:wght@300&family=PT+Sans&display=swap');
-
-/* 
-titles
-font-family: 'Bree Serif', serif;
-
-questions/answers
-font-family: 'Open Sans Condensed', sans-serif;
-font-family: 'PT Sans', sans-serif; 
-*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Open+Sans+Condensed:wght@300&display=swap');
 
 body {
-  background: #0B195A;
+  background: #000;
   color: #fff;
   text-align: center;
   font-size: 62.5%;
   box-sizing: border-box;
+  background-image: url('./img/pasta-pattern.png');
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 h1 {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Heebo', sans-serif;
 }
 
-p {
-  font-family: 'Open Sans Condensed', sans-sereif;
-}
+

@@ -12,6 +12,7 @@ const AnswerCard = ({ submitted, isCorrect, setCurrentResponse, currentResponse,
             : option === currentResponse 
             ? 'selected' 
             : submitted && option === isCorrect ? 'correct' : ''}>
+                
             {!submitted || (submitted && option !== currentResponse) ? 
             <AnswerFront>
                 <p>{option}</p>

@@ -7,7 +7,7 @@ const Game = () => {
 
     return (
         <div>
-            {running === false && <Button onClick={() => setRunning(true)}>Click to start!</Button>}
+            {running === false && <Button onClick={() => setRunning(true)}>Let's Play!</Button>}
             {running === true && <Questions />}
         </div>
     )

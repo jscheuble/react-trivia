@@ -1,10 +1,12 @@
 import React from 'react';
+import { ScoreContainer, Button } from '../styles/styledComponents';
 
-const Score = ({ score }) => {
+const Score = ({ score, resetGame }) => {
     return (
-        <div>
-            score: {score}/10
-        </div>
+        <ScoreContainer>
+            <p>score: {score}/10</p>
+            <Button onClick={() => resetGame()} >Play Again</Button>
+        </ScoreContainer>
     )
 }
 
