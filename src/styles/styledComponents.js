@@ -16,7 +16,7 @@ export const Question = styled.p`
 `;
 
 export const Card = styled.div`
-    font-size: 1.5rem;
+    font-size: 2rem;
     border: 2px solid #fff;
     width: 40%;
     margin: 2% 0;
