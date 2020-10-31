@@ -5,7 +5,8 @@ export const Heading = styled.h1`
     text-shadow: 4px 4px #7400b8;
 
     @media (max-width: 500px) {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        text-shadow: 2px 2px #7400b8;
     }
 `;
 
@@ -15,14 +16,15 @@ export const Button = styled.div`
     border-radius: .5rem;
     width: 20%;
     margin: 2% auto 0 auto;
-    font-size: 2.3rem;
+    font-size: 2rem;
 
     &:hover {
         background: rgba(128, 255, 219, 0.3);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
         font-size: 1.2rem;
+        width: 40%;
     }
 `;
 
@@ -63,7 +65,7 @@ export const Card = styled.div`
 export const AnswerFront = styled.div`
     transform: rotateY(0deg);
     background: #000;
-    padding: 5% 0;
+    padding: 3% 0;
 
     @media (max-width: 800px) {
         padding: 1% 0;
@@ -73,7 +75,7 @@ export const AnswerFront = styled.div`
 export const AnswerBack = styled.div`
     transform: rotateY(180deg);
     background: #000;
-    padding: 5% 0;
+    padding: 3% 0;
 
     p {
         color: #4ea8de;
@@ -112,7 +114,7 @@ export const ScoreContainer = styled.div`
     margin: 0 auto;
     
     p {
-        text-shadow: 2px 2px #80ffdb;
+        text-shadow: 1px 1px #80ffdb;
     }
 
     @media (max-width: 500px) {
