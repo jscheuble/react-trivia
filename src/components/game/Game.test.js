@@ -1,8 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Game from './Game';
 import { act } from 'react-dom/test-utils';
+
+afterEach(cleanup);
 
 describe('Game.js', () => {
 
@@ -13,6 +15,5 @@ describe('Game.js', () => {
             await userEvent.click(button)
             await expect(button).not.toBeInTheDocument()
         })
-
     })
 })

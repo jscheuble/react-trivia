@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import data from '../data.json';
-import { Question, AnswerContainer, Button } from '../styles/styledComponents';
-import { shuffle } from '../utils/shuffle';
-import AnswerCard from './AnswerCard';
-import Score from './Score';
-import ProgressBar from './ProgressBar';
+import data from '../../data.json';
+import { Question, AnswerContainer, Button } from '../../styles/styledComponents';
+import { shuffle } from '../../utils/shuffle';
+import AnswerCard from '../AnswerCard';
+import Score from '../Score';
+import ProgressBar from '../ProgressBar';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -73,9 +73,9 @@ const Questions = () => {
         <div className={showScore ? 'flip' : ''}>
             {!showScore ? <div>
                 <Question>{currentQuestion.question}</Question>
-                <AnswerContainer>
+                <AnswerContainer className='answers'>
                     {answers.map((option, i) => {
-                        return <AnswerCard key={i} isCorrect={currentQuestion.correct} submitted={submitted} setCurrentResponse={setCurrentResponse} currentResponse={currentResponse} option={option}  />
+                        return <AnswerCard key={i} index={i.toString()} isCorrect={currentQuestion.correct} submitted={submitted} setCurrentResponse={setCurrentResponse} currentResponse={currentResponse} option={option}  />
                     })}
                 </AnswerContainer>
                 
@@ -85,7 +85,7 @@ const Questions = () => {
                 <Button onClick={() => nextQuestion()}>Next Question</Button> : 
                 counts.questions === 10 ? 
                 <Button onClick={() => setShowScore(true)}>View Score</Button> :
-                currentResponse && <Button onClick={() => checkAnswer(currentResponse)}>Submit</Button>}
+                currentResponse && <Button data-testid='submit' onClick={() => checkAnswer(currentResponse)}>Submit</Button>}
             </div>
             : <div>
                 <Score score={counts.score} resetGame={resetGame} />

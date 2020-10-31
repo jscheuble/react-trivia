@@ -3,10 +3,10 @@ import { AnswerFront, AnswerBack, Card } from '../styles/styledComponents';
 import Correct from './Correct';
 import Incorrect from './Incorrect';
 
-const AnswerCard = ({ submitted, isCorrect, setCurrentResponse, currentResponse, option }) => {
+const AnswerCard = ({ submitted, isCorrect, setCurrentResponse, currentResponse, option, testId }) => {
 
     return (
-        <Card onClick={() => !submitted && setCurrentResponse(option)} 
+        <Card onClick={() => !submitted && setCurrentResponse(option)}
             className={ option === currentResponse && submitted 
             ? 'flip selected' 
             : option === currentResponse 

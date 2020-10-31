@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Questions from './Questions';
-import { Button } from '../styles/styledComponents';
+import Questions from '../questions/Questions';
+import { Button } from '../../styles/styledComponents';
 
 const Game = () => {
     const [running, setRunning] = useState(false);

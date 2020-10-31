@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/App.css';
 import { Heading } from './styles/styledComponents';
-import Game from './components/Game';
+import Game from './components/game/Game';
 
 function App() {
 
