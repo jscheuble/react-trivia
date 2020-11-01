@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Tandem Trivia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Deploy Link
 
-### `npm start`
+https://neon-trivia.vercel.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation/Setup
 
-### `npm test`
+```shell
+$ npm install
+$ npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run Tests
+```shell
+$ npm test
+```
 
-### `npm run build`
+## How to Use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Click the play button! Once the game begins, it will display a question and 3-4 answer choices.
+- After selecting an answer, a submit button will appear. You can change your answer as many times as you would like before submitting.
+- After submitting, the card will flip and reveal whether your selected answer was correct or incorrect.
+- If an incorrect answer is selected, the correct answer will be highlighted in green. 
+- After 10 questions have been answered and submitted, a view score button will appear. Clicking this button will reveal your score out of 10 and render a button that allows you to play another game.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Current Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Randomly generates an index to select a question from the list of questions, and removes question from list to avoid duplicates.
+- Shuffles array of answers prior to rendering so the correct answer appears in different locations throughout the game.
+- A progress bar at the bottom shows the user how many questions they have answered.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- If I had more time to build on this project, I would like to implement more tests. Due to the dynamic page load and the randomly generated questions, I was struggling to find a way to simulate clicking on an answer choice to trigger a state change. Because the snapshot looks different almost every time the page loads, I have yet to find a way to test this part of the application. After this experience, I am going to learn more about test driven development and integrate those practices into my future projects to hopefully avoid this issue moving forward. 
