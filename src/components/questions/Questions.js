@@ -3,7 +3,7 @@ import data from '../../data.json';
 import { Question, AnswerContainer, Button } from '../../styles/styledComponents';
 import { shuffle } from '../../utils/shuffle';
 import AnswerCard from '../AnswerCard';
-import Score from '../Score';
+import Score from '../score/Score';
 import ProgressBar from '../progress bar/ProgressBar';
 
 const Questions = () => {

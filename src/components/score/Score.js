@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScoreContainer, Button } from '../styles/styledComponents';
+import { ScoreContainer, Button } from '../../styles/styledComponents';
 
 const Score = ({ score, resetGame }) => {
     return (
