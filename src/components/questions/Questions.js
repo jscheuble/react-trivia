@@ -75,7 +75,7 @@ const Questions = () => {
                 <Question>{currentQuestion.question}</Question>
                 <AnswerContainer className='answers'>
                     {answers.map((option, i) => {
-                        return <AnswerCard key={i} index={i.toString()} isCorrect={currentQuestion.correct} submitted={submitted} setCurrentResponse={setCurrentResponse} currentResponse={currentResponse} option={option}  />
+                        return <AnswerCard key={i} isCorrect={currentQuestion.correct} submitted={submitted} setCurrentResponse={setCurrentResponse} currentResponse={currentResponse} option={option}  />
                     })}
                 </AnswerContainer>
                 
