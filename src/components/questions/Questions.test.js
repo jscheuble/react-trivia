@@ -8,8 +8,8 @@ afterEach(cleanup);
 
 describe('Questions.js component', () => {
 
-    test('submit button does not render before an answer is selected', async () => {
-        await act(async () => {
+    test('submit button does not render before an answer is selected', () => {
+        act(() => {
             const { queryByText } = render(<Questions />);
             expect(queryByText('submit')).toBeNull();
         })
