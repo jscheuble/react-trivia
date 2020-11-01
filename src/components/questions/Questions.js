@@ -4,7 +4,7 @@ import { Question, AnswerContainer, Button } from '../../styles/styledComponents
 import { shuffle } from '../../utils/shuffle';
 import AnswerCard from '../AnswerCard';
 import Score from '../Score';
-import ProgressBar from '../ProgressBar';
+import ProgressBar from '../progress bar/ProgressBar';
 
 const Questions = () => {
     const [questions, setQuestions] = useState(data)
@@ -55,17 +55,7 @@ const Questions = () => {
         setUpQuestion()
     }
     
-    const resetGame = async () => {
-        // await setQuestions(initialState)
-        // setCurrentResponse('')
-        // setSubmitted(false)
-        // setCounts({
-        //     questions: 0,
-        //     score: 0
-        // })
-        // setShowScore(false)
-        // setUpQuestion()
-
+    const resetGame = () => {
         window.location.reload(false)
     }
 

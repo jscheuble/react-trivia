@@ -31,7 +31,7 @@ const ProgressBar = ({ questionCount }) => {
     return (
         <Bar>
             <div style={{ width: `${questionCount * 10}%`}} >
-                <span className='text'>{questionCount}/10 </span>
+                <span data-testid='count' className='text'>{questionCount}/10</span>
             </div>
         </Bar>
     )
